@@ -1,10 +1,12 @@
 import { Layout, Typography } from 'antd';
 import Color from 'color';
 import { useTranslation } from 'react-i18next';
+import { Navigate } from 'react-router-dom';
 
 import DashboardImg from '@/assets/images/background/dashboard.png';
 import OverLay2 from '@/assets/images/background/overlay_2.jpg';
 import LocalePicker from '@/components/LocalePicker';
+import { useUserToken } from '@/store/userStore';
 import { useThemeToken } from '@/theme/hooks';
 
 import LoginForm from './LoginForm';
@@ -14,9 +16,16 @@ import QrCodeForm from './QrCodeForm';
 import RegisterForm from './RegisterForm';
 import ResetForm from './ResetForm';
 
+const { VITE_APP_HOMEPAGE: HOMEPAGE } = import.meta.env;
+
 function Login() {
   const { t } = useTranslation();
   const { colorBgElevated } = useThemeToken();
+  const { accessToken } = useUserToken();
+
+  if (accessToken) {
+    return <Navigate to={HOMEPAGE} replace />;
+  }
 
   const gradientBg = Color(colorBgElevated).alpha(0.9).toString();
   const bg = `linear-gradient(${gradientBg}, ${gradientBg}) center center / cover no-repeat,url(${OverLay2})`;
