@@ -5,8 +5,8 @@ import { SvgIcon } from '@/components/icon';
 import CircleLoading from '@/layouts/components/CircleLoading';
 import { AppRouteObject } from '@/types/router';
 
-const HomePage = lazy(() => import('@/pages/Dashboard/Workbench'));
-const Analysis = lazy(() => import('@/pages/Dashboard/Analysis'));
+const HomePage = lazy(() => import('@/pages/dashboard/workbench'));
+const Analysis = lazy(() => import('@/pages/dashboard/analysis'));
 
 const dashboard: AppRouteObject = {
   order: 1,
