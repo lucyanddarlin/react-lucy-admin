@@ -76,7 +76,7 @@ function transformPermissionToMenuRoutes(
     if (newFeature)
       appRoute.meta!.suffix = (
         <ProTag color="cyan" icon={<Iconify icon="solar:bell-bing-bold-duotone" size={14} />}>
-          NEW
+          NEW!
         </ProTag>
       );
 

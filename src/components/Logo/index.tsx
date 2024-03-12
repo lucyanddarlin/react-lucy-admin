@@ -12,7 +12,7 @@ function Logo({ className }: Props) {
   return (
     <NavLink to="/" className="no-underline">
       <button className={`font-semibold ${className}`} style={{ color: colorPrimary }}>
-        Logo
+        Lucy
       </button>
     </NavLink>
   );

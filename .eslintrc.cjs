@@ -72,6 +72,7 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/no-array-index-key': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/self-closing-comp': 'off',
 
     'import/first': 'warn',
     'import/newline-after-import': 'warn',

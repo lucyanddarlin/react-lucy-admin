@@ -12,6 +12,7 @@ const dashboard: AppRouteObject = {
   order: 1,
   path: 'dashboard',
   element: (
+    // Suspense 是一种用于处理组件异步加载的机制, 当组件还未加载完成时会显示 fallback 的内容
     <Suspense fallback={<CircleLoading />}>
       <Outlet />
     </Suspense>
