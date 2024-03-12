@@ -1,9 +1,8 @@
 import { Dropdown, MenuProps } from 'antd';
 
+import { IconButton, SvgIcon } from '@/components/icon';
 import useLocale, { LANGUAGE_MAP } from '@/locales/useLocale';
 import { LocalEnum } from '@/types/enum';
-
-import { IconButton, SvgIcon } from '../icon';
 
 type Locale = keyof typeof LocalEnum;
 

@@ -69,7 +69,7 @@ dependencies:
     specifier: ^1.11.10
     version: 1.11.10
   framer-motion:
-    specifier: ^10.16.4
+    specifier: ^10.16.16
     version: 10.16.16(react-dom@18.2.0)(react@18.2.0)
   highlight.js:
     specifier: ^11.9.0

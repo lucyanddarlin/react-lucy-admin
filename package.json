@@ -32,7 +32,7 @@
     "classnames": "^2.3.2",
     "color": "^4.2.3",
     "dayjs": "^1.11.10",
-    "framer-motion": "^10.16.4",
+    "framer-motion": "^10.16.16",
     "highlight.js": "^11.9.0",
     "i18next": "^23.5.1",
     "i18next-browser-languagedetector": "^7.1.0",

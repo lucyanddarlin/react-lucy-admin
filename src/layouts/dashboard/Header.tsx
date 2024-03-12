@@ -1,13 +1,17 @@
 import Color from 'color';
 import { CSSProperties, useState } from 'react';
 
-import { IconButton, SvgIcon } from '@/components/icon';
+import { IconButton, Iconify, SvgIcon } from '@/components/icon';
+import LocalePicker from '@/components/LocalePicker';
 import Logo from '@/components/Logo';
 import { useSettings } from '@/store/settingStore';
 import { useResponsive, useThemeToken } from '@/theme/hooks';
 import { ThemeLayout } from '@/types/enum';
 
+import AccountDropdown from '../components/AccountDropdown';
+import NoticeButton from '../components/Notice';
 import SearchBar from '../components/SearchBar';
+import SettingButton from '../components/SettingButton';
 
 import { HEADER_HEIGHT, NAV_COLLAPSED_WIDTH, NAV_WIDTH, OFFSET_HEADER_HEIGHT } from './config';
 
@@ -65,6 +69,13 @@ export default function Header({ offsetTop = false, className = '' }: Props) {
 
         <div className="flex">
           <SearchBar />
+          <LocalePicker />
+          <IconButton>
+            <Iconify icon="mdi:github" size={24} />
+          </IconButton>
+          <NoticeButton />
+          <SettingButton />
+          <AccountDropdown />
         </div>
       </div>
     </header>
