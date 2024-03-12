@@ -7,6 +7,8 @@ import { useSettings } from '@/store/settingStore';
 import { useResponsive, useThemeToken } from '@/theme/hooks';
 import { ThemeLayout } from '@/types/enum';
 
+import SearchBar from '../components/SearchBar';
+
 import { HEADER_HEIGHT, NAV_COLLAPSED_WIDTH, NAV_WIDTH, OFFSET_HEADER_HEIGHT } from './config';
 
 interface Props {
@@ -59,6 +61,10 @@ export default function Header({ offsetTop = false, className = '' }: Props) {
             <Logo className="mr-2 text-xl" />
           )}
           <div className="hidden md:block">{breadCrumb ? <div>fda</div> : null}</div>
+        </div>
+
+        <div className="flex">
+          <SearchBar />
         </div>
       </div>
     </header>
