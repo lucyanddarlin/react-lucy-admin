@@ -70,7 +70,7 @@ export default function Header({ offsetTop = false, className = '' }: Props) {
         <div className="flex">
           <SearchBar />
           <LocalePicker />
-          <IconButton>
+          <IconButton onClick={() => window.open('https://github.com/lucyanddarlin')}>
             <Iconify icon="mdi:github" size={24} />
           </IconButton>
           <NoticeButton />

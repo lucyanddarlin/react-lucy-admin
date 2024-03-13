@@ -131,6 +131,10 @@
         "404": "404",
         "500": "500"
       }
+    },
+    "notification": {
+      "notification": "Notifications",
+      "viewAll": "View All"
     }
   }
 }

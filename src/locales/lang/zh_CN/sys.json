@@ -130,6 +130,10 @@
         "404": "404",
         "500": "500"
       }
+    },
+    "notification": {
+      "notification": "通知",
+      "viewAll": "查看全部"
     }
   }
 }
