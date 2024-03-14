@@ -1,3 +1,4 @@
+import { Drawer } from 'antd';
 import Color from 'color';
 import { CSSProperties, useState } from 'react';
 
@@ -14,6 +15,7 @@ import SearchBar from '../components/SearchBar';
 import SettingButton from '../components/SettingButton';
 
 import { HEADER_HEIGHT, NAV_COLLAPSED_WIDTH, NAV_WIDTH, OFFSET_HEADER_HEIGHT } from './config';
+import Nav from './nav';
 
 interface Props {
   offsetTop?: boolean;
@@ -48,36 +50,48 @@ export default function Header({ offsetTop = false, className = '' }: Props) {
   }
 
   return (
-    <header className={`z-20 w-full ${className}`} style={headerStyle}>
-      <div
-        className="flex flex-grow items-center justify-between px-4 text-gray backdrop-blur xl:px-6 2xl:px-10"
-        style={{
-          height: offsetTop ? OFFSET_HEADER_HEIGHT : HEADER_HEIGHT,
-          transition: 'height 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
-        }}
-      >
-        <div className="flex items-baseline">
-          {themeLayout !== ThemeLayout.Horizontal ? (
-            <IconButton className="h-10 w-10 md:hidden" onClick={() => setDrawerVisible(true)}>
-              <SvgIcon icon="ic-menu" size="24" />
-            </IconButton>
-          ) : (
-            <Logo className="mr-2 text-xl" />
-          )}
-          <div className="hidden md:block">{breadCrumb ? <div>fda</div> : null}</div>
-        </div>
+    <>
+      <header className={`z-20 w-full ${className}`} style={headerStyle}>
+        <div
+          className="flex flex-grow items-center justify-between px-4 text-gray backdrop-blur xl:px-6 2xl:px-10"
+          style={{
+            height: offsetTop ? OFFSET_HEADER_HEIGHT : HEADER_HEIGHT,
+            transition: 'height 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+          }}
+        >
+          <div className="flex items-baseline">
+            {themeLayout !== ThemeLayout.Horizontal ? (
+              <IconButton className="h-10 w-10 md:hidden" onClick={() => setDrawerVisible(true)}>
+                <SvgIcon icon="ic-menu" size="24" />
+              </IconButton>
+            ) : (
+              <Logo className="mr-2 text-xl" />
+            )}
+            <div className="hidden md:block">{breadCrumb ? <div>fda</div> : null}</div>
+          </div>
 
-        <div className="flex">
-          <SearchBar />
-          <LocalePicker />
-          <IconButton onClick={() => window.open('https://github.com/lucyanddarlin')}>
-            <Iconify icon="mdi:github" size={24} />
-          </IconButton>
-          <NoticeButton />
-          <SettingButton />
-          <AccountDropdown />
+          <div className="flex">
+            <SearchBar />
+            <LocalePicker />
+            <IconButton onClick={() => window.open('https://github.com/lucyanddarlin')}>
+              <Iconify icon="mdi:github" size={24} />
+            </IconButton>
+            <NoticeButton />
+            <SettingButton />
+            <AccountDropdown />
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+      <Drawer
+        placement="left"
+        onClose={() => setDrawerVisible(false)}
+        open={drawerVisible}
+        closeIcon={false}
+        styles={{ header: { display: 'none' }, body: { padding: 0, overflow: 'hidden' } }}
+        width="auto"
+      >
+        <Nav closeSideBarDrawer={() => setDrawerVisible(false)} />
+      </Drawer>
+    </>
   );
 }
