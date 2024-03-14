@@ -7,7 +7,7 @@ import { useSettings } from '@/store/settingStore';
 import { ThemeMode } from '@/types/enum';
 
 import {
-  colorPrimary,
+  colorPrimarys,
   customComponentConfig,
   customThemeTokenConfig,
   themeModeToken,
@@ -22,7 +22,7 @@ export default function AntdConfig({ children }: Props) {
   const { language } = useLocale();
 
   const algorithm = themeMode === ThemeMode.Light ? theme.defaultAlgorithm : theme.darkAlgorithm;
-  const primaryColor = colorPrimary[themeColorPresets];
+  const primaryColor = colorPrimarys[themeColorPresets];
 
   return (
     <ConfigProvider
