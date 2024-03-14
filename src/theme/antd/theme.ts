@@ -29,7 +29,7 @@ const customComponentConfig: ThemeConfig['components'] = {
   },
 };
 
-const colorPrimary: { [k in ThemeColorPresets]: string } = {
+const colorPrimarys: { [k in ThemeColorPresets]: string } = {
   default: '#00a76f',
   cyan: '#078DEE',
   purple: '#7635DC',
@@ -57,4 +57,4 @@ const themeModeToken: Record<'dark' | 'light', ThemeConfig> = {
   light: {},
 };
 
-export { customThemeTokenConfig, customComponentConfig, colorPrimary, themeModeToken };
+export { customThemeTokenConfig, customComponentConfig, colorPrimarys, themeModeToken };
