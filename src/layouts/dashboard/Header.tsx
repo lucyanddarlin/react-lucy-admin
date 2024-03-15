@@ -10,6 +10,7 @@ import { useResponsive, useThemeToken } from '@/theme/hooks';
 import { ThemeLayout } from '@/types/enum';
 
 import AccountDropdown from '../components/AccountDropdown';
+import { BreadCrumb } from '../components/BreadCrumb';
 import NoticeButton from '../components/Notice';
 import SearchBar from '../components/SearchBar';
 import SettingButton from '../components/SettingButton';
@@ -67,7 +68,7 @@ export default function Header({ offsetTop = false, className = '' }: Props) {
             ) : (
               <Logo className="mr-2 text-xl" />
             )}
-            <div className="hidden md:block">{breadCrumb ? <div>fda</div> : null}</div>
+            <div className="hidden md:block">{breadCrumb ? <BreadCrumb /> : null}</div>
           </div>
 
           <div className="flex">
