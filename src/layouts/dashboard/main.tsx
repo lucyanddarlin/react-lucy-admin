@@ -7,6 +7,7 @@ import { useResponsive } from '@/theme/hooks';
 import { ThemeLayout } from '@/types/enum';
 
 import { HEADER_HEIGHT, MULTI_TABS_HEIGHT, NAV_COLLAPSED_WIDTH, NAV_WIDTH } from './config';
+import MultiTabs from './multi-tabs';
 
 type Props = {
   offsetTop?: boolean;
@@ -40,8 +41,7 @@ const Main = forwardRef<HTMLDivElement, Props>(({ offsetTop = false }, ref) => {
           themeStretch ? '' : 'xl:max-w-screen-xl'
         }`}
       >
-        <Outlet />
-        {/* {multiTab ? <div> multiTab</div> : <Outlet />} */}
+        {multiTab ? <MultiTabs offsetTop={offsetTop} /> : <Outlet />}
       </div>
     </Content>
   );
