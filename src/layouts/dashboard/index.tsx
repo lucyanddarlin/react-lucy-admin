@@ -11,6 +11,7 @@ import CircleLoading from '../components/CircleLoading';
 import Header from './Header';
 import Main from './main';
 import Nav from './nav';
+import NavHorizontal from './navHorizontal';
 
 function DashboardLayout() {
   const { colorBgElevated, colorTextBase } = useThemeToken();
@@ -48,7 +49,7 @@ function DashboardLayout() {
   const HorizontalLayout = (
     <div className="relative flex flex-1 flex-col">
       <Header />
-      <div>Horizontal - Nav</div>
+      <NavHorizontal />
       <Main ref={mainEl} offsetTop={offsetTop} />
     </div>
   );

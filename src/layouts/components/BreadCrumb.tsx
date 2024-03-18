@@ -53,5 +53,5 @@ export function BreadCrumb() {
     setBreadCrumbs(breadCrumbs);
   }, [matches, flattenedRoutes, t, permissionRoutes]);
 
-  return <Breadcrumb className="!text-sm" items={breadCrumbs} />;
+  return <Breadcrumb className="select-none !text-sm" items={breadCrumbs} />;
 }

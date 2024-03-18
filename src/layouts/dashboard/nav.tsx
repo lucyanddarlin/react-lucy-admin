@@ -33,6 +33,7 @@ export default function Nav(props: Props) {
 
   const menuStyle: CSSProperties = {
     background: colorBgElevated,
+    userSelect: 'none',
   };
 
   const routeToMenuFn = useRouteToMenuFn();
@@ -66,8 +67,7 @@ export default function Nav(props: Props) {
     if (themeLayout === ThemeLayout.Vertical) {
       setCollapsed(false);
       setMenuMode('inline');
-    }
-    if (themeLayout === ThemeLayout.Mini) {
+    } else if (themeLayout === ThemeLayout.Mini) {
       setCollapsed(true);
       setMenuMode('inline');
     }
