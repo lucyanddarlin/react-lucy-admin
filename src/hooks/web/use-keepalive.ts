@@ -30,6 +30,15 @@ export default function useKeepAlive() {
       const deleteTabIndex = tabs.findIndex((item) => item.key === path);
 
       tabs.splice(deleteTabIndex, 1);
+
+      if (path === activeTabRoutePath) {
+        if (deleteTabIndex === 0) {
+          push(tabs[0].key);
+        } else {
+          push(tabs[deleteTabIndex - 1].key);
+        }
+      }
+
       setTabs([...tabs]);
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
