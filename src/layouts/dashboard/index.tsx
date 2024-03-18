@@ -19,10 +19,11 @@ function DashboardLayout() {
 
   const mainEl = useRef(null);
   const { scrollY } = useScroll({ container: mainEl });
-
-  // y轴是否滚动
-  const [offsetTop, setOffsetTop] = useState<boolean>(false);
-  const onOffsetTop = useCallback(() => {
+  /**
+   * y轴是否滚动
+   */
+  const [offsetTop, setOffsetTop] = useState(false);
+  const onOffSetTop = useCallback(() => {
     scrollY.on('change', (scrollHeight) => {
       if (scrollHeight > 0) {
         setOffsetTop(true);
@@ -33,33 +34,23 @@ function DashboardLayout() {
   }, [scrollY]);
 
   useEffect(() => {
-    onOffsetTop();
-  }, [onOffsetTop]);
+    onOffSetTop();
+  }, [onOffSetTop]);
 
-  const VerticalLayout = (
-    <>
-      <Header offsetTop={offsetTop} />
-      <div className="z-50 hidden h-full flex-shrink-0 md:block">
-        <Nav />
-      </div>
-      <Main ref={mainEl} offsetTop={offsetTop} />
-    </>
-  );
-
-  const HorizontalLayout = (
-    <div className="relative flex flex-1 flex-col">
-      <Header />
-      <NavHorizontal />
-      <Main ref={mainEl} offsetTop={offsetTop} />
+  const navVertical = (
+    <div className="z-50 hidden h-full flex-shrink-0 md:block">
+      <Nav />
     </div>
   );
 
-  const layout = themeLayout === ThemeLayout.Horizontal ? HorizontalLayout : VerticalLayout;
+  const nav = themeLayout === ThemeLayout.Horizontal ? <NavHorizontal /> : navVertical;
 
   return (
     <StyleWrapper $themeMode={themeMode}>
       <div
-        className="flex h-screen overflow-hidden"
+        className={`flex h-screen overflow-hidden ${
+          themeLayout === ThemeLayout.Horizontal ? 'flex-col' : ''
+        }`}
         style={{
           color: colorTextBase,
           background: colorBgElevated,
@@ -67,7 +58,11 @@ function DashboardLayout() {
             'color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, background 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
         }}
       >
-        <Suspense fallback={<CircleLoading />}>{layout}</Suspense>
+        <Suspense fallback={<CircleLoading />}>
+          <Header offsetTop={themeLayout === ThemeLayout.Vertical ? offsetTop : undefined} />
+          {nav}
+          <Main ref={mainEl} offsetTop={offsetTop} />
+        </Suspense>
       </div>
     </StyleWrapper>
   );

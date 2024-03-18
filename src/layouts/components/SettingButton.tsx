@@ -19,6 +19,7 @@ import { colorPrimarys } from '@/theme/antd/theme';
 import { useThemeToken } from '@/theme/hooks';
 import { ThemeColorPresets, ThemeLayout, ThemeMode } from '@/types/enum';
 
+// TODO: i18n
 export default function SettingButton() {
   const [drawerVisible, setDrawerVisible] = useState<boolean>(false);
 

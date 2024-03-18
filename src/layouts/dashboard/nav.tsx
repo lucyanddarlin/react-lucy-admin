@@ -77,13 +77,7 @@ export default function Nav(props: Props) {
    * events
    */
   const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
-    // indexOf 返回查询元素所在的索引,若不存在, 返回 -1
-    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-    if (latestOpenKey) {
-      setOpenKeys(keys);
-    } else {
-      setOpenKeys([]);
-    }
+    setOpenKeys(keys);
   };
 
   const onClick: MenuProps['onClick'] = ({ key }) => {
