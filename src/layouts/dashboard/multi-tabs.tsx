@@ -182,7 +182,7 @@ export default function MultiTabs({ offsetTop = false }: Props) {
         borderColor: themeToken.colorBorderSecondary,
         backgroundColor: themeToken.colorBgLayout,
         transition:
-          'color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms background 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+          'color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, background 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
       };
 
       if (isActive) {
@@ -219,14 +219,11 @@ export default function MultiTabs({ offsetTop = false }: Props) {
             <Iconify
               icon="ion:close-outline"
               size={18}
-              className="cursor-pointer opacity-50"
-              style={{
-                visibility:
-                  (tab.key === activeTabRoutePath && tab.key !== hoveringTabKey) ||
-                  tabs.length === 1
-                    ? 'hidden'
-                    : 'visible',
-              }}
+              className={`transition-opacity duration-200 ${
+                (tab.key !== activeTabRoutePath && tab.key !== hoveringTabKey) || tabs.length === 1
+                  ? 'opacity-0'
+                  : 'cursor-pointer opacity-50'
+              }`}
               onClick={(e) => {
                 e.stopPropagation();
                 closeTabs(tab.key);
